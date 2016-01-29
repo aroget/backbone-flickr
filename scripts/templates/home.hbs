@@ -1,0 +1,14 @@
+<h1>Home</h1>
+
+<ul>
+  {{#each collection.[0].photosets.photoset}}
+    <li>
+      <h2>
+        <a href="#/series/{{id}}">
+          {{ title._content }}
+        </a>
+      </h2>
+    </li>
+  {{/each}}
+
+</ul>

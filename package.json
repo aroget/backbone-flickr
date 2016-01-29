@@ -1,0 +1,23 @@
+{
+  "name": "radiopinkfloyd",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bundle.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "watchify -t hbsfy ./scripts/app.js -o bundle.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browserify": "^13.0.0",
+    "watchify": "^3.7.0"
+  },
+  "dependencies": {
+    "backbone": "^1.2.3",
+    "handlebars": "^4.0.5",
+    "hbsfy": "^2.4.1",
+    "jquery": "^2.2.0",
+    "underscore": "^1.8.3"
+  }
+}
