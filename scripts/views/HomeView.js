@@ -18,6 +18,8 @@ var HomeView = Backbone.View.extend({
   template: homeTemplate,
 
   initialize: function(){
+    $('body').addClass('loading');
+
     var method = "method=flickr.photosets.getList&",
            api = "api_key="+ API_KEY +"&",
           user = "user_id="+ USER_ID + "&",
@@ -32,7 +34,9 @@ var HomeView = Backbone.View.extend({
   },
 
   render: function(){
-    
+    debugger;
+    $('body').removeClass('loading');
+
     $("#app").html(this.template({collection: this.collection.toJSON()}));
 
     return this;
