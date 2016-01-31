@@ -19,6 +19,8 @@ var SeriesView = Backbone.View.extend({
   template: seriesTemplate,
   
   initialize: function(seriesId){
+    $('body').addClass('loading');
+
     var method = "method=flickr.photosets.getPhotos&",
            api = "api_key="+ API_KEY +"&",
       photoset = "photoset_id="+ seriesId +"&",
@@ -34,7 +36,7 @@ var SeriesView = Backbone.View.extend({
   },
 
   render: function(model){
-    console.log(this.collection.toJSON());
+    $('body').removeClass('loading');
     
     $("#app").html(this.template({collection: this.collection.toJSON()}));
 
