@@ -34,6 +34,7 @@ var SeriesView = Backbone.View.extend({
   },
 
   render: function(model){
+    console.log(this.collection.toJSON());
     
     $("#app").html(this.template({collection: this.collection.toJSON()}));
 

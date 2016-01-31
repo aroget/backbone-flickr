@@ -1,13 +1,17 @@
-<h2>{{collection.[0].photoset.title}}</h2>
+<ul class="breadcrumb row">
+	<li><a href="/">Home </a> <span>&gt; </span></li>
+	<li><h3 class="series-title row">{{collection.[0].photoset.title}}</h3></li>
+	<li class="u-pull-right"><p>Photos: <strong>{{collection.[0].photoset.total}}<strong></p></li>
+</ul>
 
-<ul class="photo-list">
+<ul class="series-list u-center">
   
   {{#each collection.[0].photoset.photo}}
     <li class="photo-item">
       <img src="https://farm{{farm}}.staticflickr.com/{{server}}/{{id}}_{{secret}}.jpg">
       
       {{#if title}}
-        <caption>Title: <strong>{{title}}</strong></caption>
+        <span class="caption">Title: <strong>{{title}}</strong></span>
       {{/if}}
 
     </li>
