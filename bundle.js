@@ -14537,7 +14537,6 @@ var HomeView = Backbone.View.extend({
   },
 
   render: function(){
-    debugger;
     $('body').removeClass('loading');
 
     $("#app").html(this.template({collection: this.collection.toJSON()}));

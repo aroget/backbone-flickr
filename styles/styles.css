@@ -38,6 +38,10 @@ footer{
   text-align:center;
 }
 
+.breadcrumb {
+  border-bottom: 1px solid;
+}
+
 .breadcrumb > *{
   display:inline-block;
 }
