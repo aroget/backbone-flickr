@@ -14452,7 +14452,7 @@ var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"1":function(container,depth0,helpers,partials,data) {
     var stack1, helper, alias1=container.escapeExpression;
 
-  return "    <li>\n      <h2>\n        <a href=\"#/series/"
+  return "    <li class=\"six-50 columns\">\n      <h2>\n        <a href=\"#/series/"
     + alias1(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"id","hash":{},"data":data}) : helper)))
     + "\">\n          "
     + alias1(container.lambda(((stack1 = (depth0 != null ? depth0.title : depth0)) != null ? stack1._content : stack1), depth0))
@@ -14460,7 +14460,7 @@ module.exports = HandlebarsCompiler.template({"1":function(container,depth0,help
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1;
 
-  return "<h1>Home</h1>\n\n<ul>\n"
+  return "<ul class=\"home-list\">\n"
     + ((stack1 = helpers.each.call(depth0 != null ? depth0 : {},((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.collection : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.photosets : stack1)) != null ? stack1.photoset : stack1),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + "\n</ul>";
 },"useData":true});
@@ -14485,15 +14485,17 @@ module.exports = HandlebarsCompiler.template({"1":function(container,depth0,help
 },"2":function(container,depth0,helpers,partials,data) {
     var helper;
 
-  return "        <caption>Title: <strong>"
+  return "        <span class=\"caption\">Title: <strong>"
     + container.escapeExpression(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"title","hash":{},"data":data}) : helper)))
-    + "</strong></caption>\n";
+    + "</strong></span>\n";
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    var stack1;
+    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
 
-  return "<h2>"
-    + container.escapeExpression(container.lambda(((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.collection : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.photoset : stack1)) != null ? stack1.title : stack1), depth0))
-    + "</h2>\n\n<ul class=\"photo-list\">\n  \n"
+  return "<ul class=\"breadcrumb row\">\n	<li><a href=\"/\">Home </a> <span>&gt; </span></li>\n	<li><h3 class=\"series-title row\">"
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.collection : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.photoset : stack1)) != null ? stack1.title : stack1), depth0))
+    + "</h3></li>\n	<li class=\"u-pull-right\"><p>Photos: <strong>"
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.collection : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.photoset : stack1)) != null ? stack1.total : stack1), depth0))
+    + "<strong></p></li>\n</ul>\n\n<ul class=\"series-list u-center\">\n  \n"
     + ((stack1 = helpers.each.call(depth0 != null ? depth0 : {},((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.collection : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.photoset : stack1)) != null ? stack1.photo : stack1),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + "\n</ul>\n\n";
 },"useData":true});
@@ -14580,6 +14582,7 @@ var SeriesView = Backbone.View.extend({
   },
 
   render: function(model){
+    console.log(this.collection.toJSON());
     
     $("#app").html(this.template({collection: this.collection.toJSON()}));
 
